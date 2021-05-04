@@ -21,11 +21,12 @@ public class _11651 {
             arr[i][1] = Integer.parseInt(st.nextToken());
         }
 
+        /*e1과 e2는 x축 배열*/
         Arrays.sort(arr, (e1, e2) -> {
-            if (e1[1] == e2[1]) {
-                return e1[0] - e2[0];
-            }else {
-                return e1[1] - e2[1];
+            if (e1[1] == e2[1]) { // y좌표값이 같으면 x좌표값을 비교
+                return e1[0] - e2[0]; // 앞에 x좌표값이 더 크면 양수값 리턴 --> 자리 교체
+            }else { // y좌표값이 다르면 y좌표값끼리 비교
+                return e1[1] - e2[1]; // 앞에 y좌표값이 더 크면 양수값 리턴 --> 자리교체
             }
         });
 
