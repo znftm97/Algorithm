@@ -9,7 +9,6 @@ public class _2839 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int sugar = Integer.parseInt(br.readLine());
 
-
         if (sugar == 4 || sugar == 7) {
             System.out.println(-1);
         }
