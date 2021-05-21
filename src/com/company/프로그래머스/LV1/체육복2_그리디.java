@@ -2,7 +2,7 @@ package com.company.프로그래머스.LV1;
 
 import java.io.IOException;
 
-public class 체육복2 {
+public class 체육복2_그리디 {
     public int solution(int n, int[] lost, int[] reserve) {
         int[] arr = new int[n];
 

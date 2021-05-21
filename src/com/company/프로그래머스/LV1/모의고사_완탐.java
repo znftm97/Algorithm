@@ -2,7 +2,7 @@ package com.company.프로그래머스.LV1;
 
 import java.util.ArrayList;
 
-public class 모의고사 {
+public class 모의고사_완탐 {
     public int[] solution(int[] answers) {
         int[] answer = {};
         int[] arr1 = {1,2,3,4,5};
