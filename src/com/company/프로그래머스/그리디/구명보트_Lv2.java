@@ -1,4 +1,4 @@
-package com.company.프로그래머스.LV2;
+package com.company.프로그래머스.그리디;
 
 import java.util.Arrays;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
 * 탈출조건은 max,min이 같은 인덱스값을 가질 떄 한명만 남은 경우이므로 남은 한명 탈출시키고 무한루프 탈출
 * min이 max보다 커지면 서로 위치가 바뀐거니 남은사람없음 무한루프 탈출
 * */
-public class 구명보트_그리디 {
+public class 구명보트_Lv2 {
     public int solution(int[] people, int limit) {
         int max = people.length - 1;
         int min = 0;

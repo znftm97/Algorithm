@@ -1,8 +1,8 @@
-package com.company.프로그래머스.LV1;
+package com.company.프로그래머스.그리디;
 
 import java.io.IOException;
 
-public class 체육복2_그리디 {
+public class 체육복2_Lv1 {
     public int solution(int n, int[] lost, int[] reserve) {
         int[] arr = new int[n];
 

@@ -1,8 +1,8 @@
-package com.company.프로그래머스.LV1;
+package com.company.프로그래머스.그리디;
 
 import java.io.IOException;
 
-public class 체육복1 {
+public class 체육복1_Lv1 {
     public static void main(String[] args) throws IOException {
         int[] lost = {2,3,4};
         int[] reserve = {1,5};

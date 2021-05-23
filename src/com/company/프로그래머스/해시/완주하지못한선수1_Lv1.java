@@ -1,9 +1,9 @@
-package com.company.프로그래머스.LV1;
+package com.company.프로그래머스.해시;
 
 import java.util.Arrays;
 
 /*그리디? 로 풀기*/
-public class 완주하지못한선수_해시1 {
+public class 완주하지못한선수1_Lv1 {
     public String solution(String[] participant, String[] completion) {
         Arrays.sort(participant);
         Arrays.sort(completion);

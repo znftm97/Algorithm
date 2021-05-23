@@ -1,4 +1,4 @@
-package com.company.프로그래머스.LV1;
+package com.company.프로그래머스.Etc;
 
 public class 음양더하기 {
     public int solution(int[] absolutes, boolean[] signs) {

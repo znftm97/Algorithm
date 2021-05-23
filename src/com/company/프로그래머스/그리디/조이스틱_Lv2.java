@@ -1,6 +1,6 @@
-package com.company.프로그래머스.LV2;
+package com.company.프로그래머스.그리디;
 
-public class 조이스틱_그리디 {
+public class 조이스틱_Lv2 {
     public int solution(String name) {
         int len = name.length();
         int minMoveLeftRight = len - 1;

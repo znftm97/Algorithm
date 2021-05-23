@@ -1,6 +1,6 @@
-package com.company.프로그래머스.LV2;
+package com.company.프로그래머스.그리디;
 
-public class 큰수만들기_그리디 {
+public class 큰수만들기_Lv2 {
     public String solution(String number, int k) {
         StringBuilder sb = new StringBuilder();
         int idx = 0; // 인덱스

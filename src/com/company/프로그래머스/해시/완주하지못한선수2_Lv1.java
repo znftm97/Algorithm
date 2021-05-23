@@ -1,11 +1,11 @@
-package com.company.프로그래머스.LV1;
+package com.company.프로그래머스.해시;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 /*hash 이용해서 풀기*/
-public class 완주하지못한선수_해시2 {
+public class 완주하지못한선수2_Lv1 {
     public String solution(String[] participant, String[] completion) {
         HashMap<String, Integer> hm = new HashMap<>();
         String answer = "";

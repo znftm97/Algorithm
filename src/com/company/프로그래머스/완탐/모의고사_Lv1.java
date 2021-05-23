@@ -1,8 +1,8 @@
-package com.company.프로그래머스.LV1;
+package com.company.프로그래머스.완탐;
 
 import java.util.ArrayList;
 
-public class 모의고사_완탐 {
+public class 모의고사_Lv1 {
     public int[] solution(int[] answers) {
         int[] answer = {};
         int[] arr1 = {1,2,3,4,5};

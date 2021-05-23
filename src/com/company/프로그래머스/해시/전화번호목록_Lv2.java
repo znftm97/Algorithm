@@ -1,6 +1,6 @@
-package com.company.프로그래머스.LV1;
+package com.company.프로그래머스.해시;
 
-public class 전화번호목록_해시 {
+public class 전화번호목록_Lv2 {
     public boolean solution(String[] phone_book) {
         for (int i = 0; i < phone_book.length - 1; i++) {
             for (int j = i + 1; j < phone_book.length; j++) {
