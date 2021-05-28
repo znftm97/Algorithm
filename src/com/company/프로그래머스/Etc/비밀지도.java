@@ -1,16 +1,7 @@
-package com.company;
+package com.company.프로그래머스.Etc;
 
-import java.io.IOException;
-
-public class Main {
-    public static void main(String[] args) throws IOException {
-        int n = 5;
-        int[] arr1 = {9, 20, 28, 18, 11};
-        int[] arr2 = {30, 1, 21, 17, 28};
-        solution(n, arr1, arr2);
-    }
-
-    static String[] solution(int n, int[] arr1, int[] arr2) {
+public class 비밀지도 {
+    public String[] solution(int n, int[] arr1, int[] arr2) {
         boolean[][] map = new boolean[n][n];
         String[] answer = new String[n];
 
