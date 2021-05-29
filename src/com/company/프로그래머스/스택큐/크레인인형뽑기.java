@@ -8,7 +8,6 @@ public class 크레인인형뽑기 {
 
         Stack<Integer> stack = new Stack<>();
         stack.push(0); // 스택에서 맨 위값과 비교해야 하는데 비어있으면 에러나기 때문에 0 삽입
-
         for (int move : moves) {
             for (int j = 0; j < board.length; j++) {
                 if (board[j][move - 1] != 0) { // 하나의 열이 모두 0인경우는 수행할 필요 없음
