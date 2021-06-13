@@ -1,19 +1,15 @@
-package com.company;
+package com.company.프로그래머스.문자열;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class Main {
+public class 뉴스클러스터링 {
     private static final Pattern IDENTIFY = Pattern.compile("[A-Z][A-Z]");
 
-    public static void main(String[] args) throws IOException {
-        String str1 = "FRANCE";
-        String str2 = "french";
-
-        List<String> list1 = new ArrayList<>();
-        List<String> list2 = new ArrayList<>();
+    public int solution(String str1, String str2) {
+        List<String> list1 = new ArrayList<>(); // str1 문자열을 두개씩 추출해서 담을 list1
+        List<String> list2 = new ArrayList<>(); // str1 문자열을 두개씩 추출해서 담을 list2
         double intersectionCount = 0; // 교집합 개수
         double unionCount = 0; // 합집합 개수
         int answer = 0;
@@ -25,25 +21,25 @@ public class Main {
         list1 = extract(str1);
         list2 = extract(str2);
 
-
+        /*교집합, 합집합 개수 구하기*/
         for(String s : list1){
             if(list2.remove(s)){
                 intersectionCount++;
             }
             unionCount++;
         }
-
         for(String s : list2){
             unionCount++;
         }
 
-        System.out.println(intersectionCount / unionCount);
-        answer = (int) Math.floor((intersectionCount / unionCount) * 65536); // int형으로 캐스팅해서 소수값 버리기
-        if (answer == 0) { // 일치하는 요소가 없는 경우
-            System.out.println("65536");
+        if (intersectionCount == 0 && unionCount == 0) { // 집합 A,B가 공집합인 경우(교집합, 합집합의 개수가 0)
+            return 65536;
+        }
+        if (intersectionCount == 0) { // 교집합만 공집합인 경우(교집합의 개수가 0)
+            return 0;
         }
 
-        System.out.println(answer);
+        return (int) Math.floor((intersectionCount / unionCount) * 65536); // floor로 소수점 버리고 int형으로 변환
     }
 
     static List<String> extract(String s) {
@@ -66,4 +62,3 @@ public class Main {
         }
     }
 }
-
