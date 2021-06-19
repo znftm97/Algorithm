@@ -1,69 +1,39 @@
 package com.company;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
-    static int[][] map;
-    static boolean visit[][];
-    static int[] dx = {-1, 1, 0, 0};
-    static int[] dy = {0, 0, -1, 1};
-    static int N;
-    static int M;
-
     public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
+        int[] answers = {1, 2, 3, 4, 5};
+        int[] answer = {};
+        int[] arr1 = {1,2,3,4,5};
+        int[] arr2 = {2,1,2,3,2,4,2,5};
+        int[] arr3 = {3,3,1,1,2,2,4,4,5,5};
+        int answer1=0, answer2 =0, answer3 =0;
 
-        st = new StringTokenizer(br.readLine());
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
-        map = new int[N][M];
-        visit = new boolean[N][M];
-
-        for (int i = 0; i < N; i++) {
-            String s = br.readLine();
-
-            for (int j = 0; j < M; j++) {
-                map[i][j] = s.charAt(j) - '0';
-            }
+        /*맞은 문제수 체크*/
+        for(int i =0; i<answers.length; i++){
+            if(arr1[i%5] == answers[i]) answer1++; // 각 문제수가 정해져 있으므로 조건문에서 그냥 숫자 넣고, 이게 가변적이라면 length로
+            if(arr2[i%8] == answers[i]) answer2++;
+            if(arr3[i%10] == answers[i]) answer3++;
         }
 
-        BFS(0, 0);
+        int max = Math.max(Math.max(answer1, answer2),answer3); //최대값 구하기
 
-        System.out.println(map[N-1][M-1]);
-    }
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        if(max==answer1) list.add(1); //max값이랑 같으면 list에 추가
+        if(max==answer2) list.add(2);
+        if(max==answer3) list.add(3);
 
-    static void BFS(int x, int y) {
-        Queue<Integer> qx = new LinkedList<>();
-        Queue<Integer> qy = new LinkedList<>();
-        qx.add(x);
-        qy.add(y);
+        answer = new int[list.size()];
 
-        while (!qx.isEmpty() && !qy.isEmpty()) {
-            x = qx.poll();
-            y = qy.poll();
-            visit[x][y] = true;
-
-            for (int i = 0; i < 4; i++) {
-                int nx = x + dx[i];
-                int ny = y + dy[i];
-
-                if (nx >= 0 && ny >= 0 && nx < N && ny < M && map[nx][ny] == 1) {
-                    if (!visit[nx][ny]) {
-                        qx.add(nx);
-                        qy.add(ny);
-                        visit[nx][ny] = true;
-                        map[nx][ny] = map[x][y] + 1;
-                    }
-                }
-            }
+        for(int i =0; i<answer.length; i++) {
+            answer[i] = list.get(i);
         }
+
+        return;
     }
-
-
-
 }
+
 
