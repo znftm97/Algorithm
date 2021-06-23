@@ -17,8 +17,9 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 !**/src/com/company/코테
-**/src/com/company/테스트
 **/src/com/company/코테
+!**/src/com/company/코테/**
+**/src/com/company/코테/**
 
 ### IntelliJ IDEA ###
 .idea

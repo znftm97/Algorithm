@@ -1,11 +1,11 @@
-package com.company;
+package com.company.해커랭크.easy;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
-    public static void main(String[] args) throws IOException{
+public class XorStrings {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String s1 = br.readLine();
@@ -23,6 +23,3 @@ public class Main {
         System.out.println(answer);
     }
 }
-
-
-
