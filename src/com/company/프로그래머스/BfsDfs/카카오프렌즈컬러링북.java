@@ -17,7 +17,7 @@ public class 카카오프렌즈컬러링북 {
 
         for(int i = 0; i<m; i++){
             for(int j = 0; j<n; j++){
-                if(picture[i][j] > 0 && visit[i][j] == false){ // 여기서도 방문처리
+                if(picture[i][j] > 0 && visit[i][j] == false){ // 여기서도 방문했는지 검사
                     SizeOfOneArea = 0;
 
                     numberOfArea++; // 영역 개수 카운팅

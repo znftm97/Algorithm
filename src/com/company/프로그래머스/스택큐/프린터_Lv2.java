@@ -1,5 +1,6 @@
 package com.company.프로그래머스.스택큐;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -7,7 +8,7 @@ import java.util.PriorityQueue;
 public class 프린터_Lv2 {
     public int solution(int[] priorities, int location) {
         int answer = 1;
-        PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.reverseOrder()); // 내림차순으로 정렬
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder()); // 내림차순으로 정렬
 
         /*큐에 우선순위 입력 내림차순으로 정렬됨*/
         for (int i : priorities) {

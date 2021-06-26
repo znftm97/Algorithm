@@ -1,4 +1,4 @@
-package com.company.프로그래머스.Etc;
+package com.company.프로그래머스.문자열;
 
 public class 문자열p와y개수 {
     boolean solution(String s) {

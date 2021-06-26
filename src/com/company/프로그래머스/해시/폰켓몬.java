@@ -1,4 +1,4 @@
-package com.company.프로그래머스.Etc;
+package com.company.프로그래머스.해시;
 
 import java.util.HashSet;
 

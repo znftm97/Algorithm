@@ -1,4 +1,4 @@
-package com.company.프로그래머스.Etc;
+package com.company.프로그래머스.문자열;
 
 import java.util.Arrays;
 import java.util.Collections;
