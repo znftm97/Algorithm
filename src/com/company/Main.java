@@ -7,27 +7,13 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException{
-        int[] arr = {1, 3, 5, 4, 0, 0, 7, 0, 0 ,6};
-        int tc = 10;
 
-        Stack<Integer> st = new Stack<>();
-        int sum = 0;
+        int[][] T = {{4,3},{3,1},{2,3},{3,4}};
 
-        for (int i = 0; i < tc; i++) {
-            int input = arr[i];
 
-            if(input != 0){
-                st.add(input);
-            } else if(input == 0 && !st.isEmpty()){
-                st.pop();
-            }
-        }
+        Arrays.sort(T, (o1, o2) -> o1[0] - o2[0]);
+        System.out.println();
 
-        for (int a : st) {
-            sum += a;
-        }
-
-        System.out.println(sum);
     }
 }
 

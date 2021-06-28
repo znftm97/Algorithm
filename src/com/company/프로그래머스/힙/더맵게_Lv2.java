@@ -1,4 +1,4 @@
-package com.company.프로그래머스.스택큐;
+package com.company.프로그래머스.힙;
 
 import java.util.PriorityQueue;
 
