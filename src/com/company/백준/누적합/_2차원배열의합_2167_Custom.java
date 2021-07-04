@@ -37,11 +37,11 @@ public class _2차원배열의합_2167_Custom {
         int K = Integer.parseInt(br.readLine());
         for (int i = 0; i < K; i++) {
             st = new StringTokenizer(br.readLine());
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-            int c = Integer.parseInt(st.nextToken());
-            int d = Integer.parseInt(st.nextToken());
-            sb.append(arr[c][d] - arr[a][b - 1]).append("\n"); // y - (x-1) 공식 적용, 행은 고정이므로 열에서 1만 빼주면됨
+            int x1 = Integer.parseInt(st.nextToken());
+            int y1 = Integer.parseInt(st.nextToken());
+            int x2 = Integer.parseInt(st.nextToken());
+            int y2 = Integer.parseInt(st.nextToken());
+            sb.append(arr[x2][y2] - arr[x1][y1 - 1]).append("\n"); // y - (x-1) 공식 적용, 행은 고정이므로 열에서 1만 빼주면됨
         }
 
         System.out.println(sb.toString());
