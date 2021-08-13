@@ -1,11 +1,11 @@
-package com.company.백준.백트래킹;
+package com.company.백준.완전탐색.백트래킹;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class _15652 {
+public class _15651 {
     static int N;
     static int M;
     static int[] arr;
@@ -20,11 +20,11 @@ public class _15652 {
 
         arr = new int[M];
 
-        dfs(1, 0);
+        dfs(0);
         System.out.println(sb);
     }
 
-    public static void dfs(int at, int depth) {
+    public static void dfs(int depth) {
         if (depth == M) {
             for (int val : arr) {
                 sb.append(val).append(' ');
@@ -33,10 +33,9 @@ public class _15652 {
             return;
         }
 
-        for (int i = at; i <= N; i++) {
+        for (int i = 1; i <= N; i++) {
             arr[depth] = i;
-            dfs(i, depth + 1);
+            dfs( depth + 1);
         }
-
     }
 }

@@ -1,4 +1,4 @@
-package com.company.백준.백트래킹;
+package com.company.백준.완전탐색.백트래킹;
 
 import java.io.BufferedReader;
 import java.io.IOException;
