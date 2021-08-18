@@ -1,4 +1,4 @@
-package com.company.백준.기타;
+package com.company.백준.기타.실5;
 
 import java.io.BufferedReader;
 import java.io.IOException;
