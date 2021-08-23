@@ -1,33 +1,32 @@
-package com.company.백준.기타.실4;
+package com.company.백준.누적합;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.StringTokenizer;
 
-public class 숫자카드2_10816 {
+public class 합구하기_11441 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
         StringBuilder sb = new StringBuilder();
-        Map<String, Integer> check = new HashMap<>();
+        StringTokenizer st;
 
         int n = Integer.parseInt(br.readLine());
+        int[] dp = new int[n+1];
+
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
-            String input = st.nextToken();
-            check.put(input, check.getOrDefault(input, 0) + 1);
+        for (int i = 1; i <= n; i++) {
+            int num = Integer.parseInt(st.nextToken());
+            dp[i] = dp[i - 1] + num;
         }
 
         int m = Integer.parseInt(br.readLine());
-        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < m; i++) {
-            String key = st.nextToken();
+            st = new StringTokenizer(br.readLine());
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
 
-            if(check.containsKey(key)) sb.append(check.get(key)).append(" ");
-            else sb.append(0).append(" ");
+            sb.append(dp[y] - dp[x - 1]).append("\n");
         }
 
         System.out.println(sb);
