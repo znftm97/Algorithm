@@ -19,7 +19,7 @@ public class 수열_2559 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int start = 0, end = K-1;
+        int start = 0, end = K-1; // 연속적인 k일이라고 주어졌으므로 end위치를 k에 위치하도록 (배열인덱스라 -1)
         int maxSum = Integer.MIN_VALUE; // 온도가 음수로만 주어질 수도 있으므로 0으로 하면 틀림
 
         while (true) {
