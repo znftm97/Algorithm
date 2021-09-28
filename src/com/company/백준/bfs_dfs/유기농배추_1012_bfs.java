@@ -1,11 +1,13 @@
-package com.company;
+package com.company.백준.bfs_dfs;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
-public class Main {
+public class 유기농배추_1012_bfs {
     static int[][] map;
     static int[] dx = {-1, 1, 0, 0};
     static int[] dy = {0, 0, -1, 1};
@@ -78,5 +80,3 @@ public class Main {
         }
     }
 }
-
-

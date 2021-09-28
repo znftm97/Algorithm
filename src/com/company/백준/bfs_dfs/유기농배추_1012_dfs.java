@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class _1012 {
+public class 유기농배추_1012_dfs {
     static int[][] map; // 지도
     static int needBug; // 필요한 지렁이 수
     static int[] dx = {-1, 1, 0, 0};

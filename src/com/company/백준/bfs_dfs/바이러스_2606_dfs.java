@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class _2606 {
+public class 바이러스_2606_dfs {
     static ArrayList<ArrayList<Integer>> list;
     static boolean[] visit;
     static int infectionCount = 0;
