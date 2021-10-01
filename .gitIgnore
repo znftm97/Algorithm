@@ -31,7 +31,6 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 /src/com/company/Main.java
-!**/src/com/company/Main.java
 **/src/com/company/Main.java
 /src/com/company/코테
 
