@@ -4,17 +4,16 @@ import java.io.IOException;
 
 public class 가장긴팰린드롬 {
     public static void main(String[] args) throws IOException {
-        String s = "abbac";
+        String s = "abcdecd";
 
         /*1. 문자열을 char 배열로*/
         char[] arr = s.toCharArray();
 
         /*2. 총 3번의 반복문을 진행0
          * 먼저 가장 긴 문자열부터 이 문자열이 회문을 만족하는지 안하는지 검사 후 만족하면 길이 저장 후 반복문탈출
-         * 만족 안하면 배열 인덱스 값 하나 줄여서(abcda -> abcd -> abc...) 계속 검사
+         * 만족 안하면 배열 인덱스 값 하나 줄여서 해당 길이의 모든 문자열 검사 (abdcecd -> abdcec -> bdcecd -> abdce -> bdcec -> dcecd ...)
          * */
         for(int len = s.length(); len>1; len--){
-
             for(int start = 0; start+len<=s.length(); start++){
                 boolean check = true;
 
@@ -33,7 +32,7 @@ public class 가장긴팰린드롬 {
             }
         }
 
-        /*위에서 계속 저건에 걸려서 만족을 못했다면 한 글자인 경우*/
+        /*위에서 계속 조건에 걸려서 만족을 못했다면 한 글자인 경우*/
         System.out.println(1);
     }
 }
