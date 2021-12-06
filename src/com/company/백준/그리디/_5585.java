@@ -11,18 +11,11 @@ public class _5585 {
         int[] arr = {500, 100, 50, 10, 5, 1};
         int leftMoney = 1000 - Integer.parseInt(br.readLine());
         int count = 0;
-        int i = 0;
 
-        while (true) {
+        for (int i = 0; i < arr.length; i++) {
             if (arr[i] <= leftMoney) {
-                leftMoney = leftMoney - arr[i];
-                count++;
-            } else {
-                i++;
-            }
-
-            if (leftMoney == 0) {
-                break;
+                count += leftMoney / arr[i];
+                leftMoney = leftMoney % arr[i];
             }
         }
 
