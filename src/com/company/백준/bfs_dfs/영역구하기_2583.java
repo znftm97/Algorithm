@@ -19,6 +19,7 @@ public class 영역구하기_2583 {
 
     static List<Integer> regionCounts = new ArrayList<>();
     static int[][] map;
+    static boolean[][] visit;
     static int[] dr = {-1, 1, 0, 0};
     static int[] dc = {0, 0, -1, 1};
     static int r;
@@ -27,7 +28,7 @@ public class 영역구하기_2583 {
     public static void bfs(Point point){
         Queue<Point> q = new LinkedList<>();
         q.add(point);
-        map[point.r][point.c] = 1; // 방문처리
+        visit[point.r][point.c] = true;
         int cnt = 1;
 
         while (!q.isEmpty()) {
@@ -37,9 +38,9 @@ public class 영역구하기_2583 {
                 int nr = pollPoint.r + dr[i];
                 int nc = pollPoint.c + dc[i];
 
-                if (notEscape(nr, nc) && isEmpty(nr, nc)) {
+                if (notEscape(nr, nc) && isEmpty(nr, nc) && notVisit(nr,nc)) {
                     q.add(new Point(nr,nc));
-                    map[nr][nc] = 1;
+                    visit[nr][nc] = true;
                     cnt++;
                 }
             }
@@ -64,6 +65,14 @@ public class 영역구하기_2583 {
         return false;
     }
 
+    public static boolean notVisit(int nr, int nc) {
+        if (!visit[nr][nc]) {
+            return true;
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -71,6 +80,7 @@ public class 영역구하기_2583 {
         r = Integer.parseInt(st.nextToken());
         c = Integer.parseInt(st.nextToken());
         map = new int[r][c];
+        visit = new boolean[r][c];
         int squareCnt = Integer.parseInt(st.nextToken());
 
         for (int sc = 0; sc < squareCnt; sc++) {
@@ -90,7 +100,7 @@ public class 영역구하기_2583 {
         int areaCnt = 0;
         for (int i = 0; i < r; i++) {
             for (int j = 0; j < c; j++) {
-                if (map[i][j] == 0) {
+                if (map[i][j] == 0 && !visit[i][j]) {
                     bfs(new Point(i, j));
                     areaCnt++;
                 }
@@ -103,6 +113,8 @@ public class 영역구하기_2583 {
         for (int cnt : regionCounts) {
             System.out.print(cnt + " ");
         }
+
+        br.close();
     }
 
 }
