@@ -1,4 +1,4 @@
-package com.company.백준.구현;
+package com.company.백준.시뮬레이션;
 
 import java.io.BufferedReader;
 import java.io.IOException;
