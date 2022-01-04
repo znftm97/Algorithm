@@ -1,4 +1,4 @@
-package com.company.백준.기타.실4;
+package com.company.백준.이진탐색;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-public class 수찾기_1920_Map이용 {
+public class 수찾기_1920_Map이용_메서드랑시간비슷함 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;

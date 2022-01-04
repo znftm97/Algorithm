@@ -1,4 +1,4 @@
-package com.company.백준.기타.실4;
+package com.company.백준.이진탐색;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class 수찾기_1920_이분탐색 {
+public class 수찾기_1920_이분탐색메서드사용_시간더적게걸림 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
