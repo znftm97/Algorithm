@@ -34,10 +34,7 @@ public class 수열_2559 {
             for (int i = start; i <= end; i++) {
                 sum += arr[i];
             }
-
-            if (sum > maxSum) {
-                maxSum = sum;
-            }
+            maxSum = Math.max(maxSum, sum);
 
             start++;
             end++;
