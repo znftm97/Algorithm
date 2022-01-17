@@ -23,9 +23,9 @@ public class 후보추천하기_1713 {
         @Override
         public int compareTo(Student s) {
             if (this.recommend == s.recommend) {
-                return this.young - s.young;
+                return Integer.compare(this.young, s.young);
             }
-            return this.recommend - s.recommend;
+            return Integer.compare(this.recommend, s.recommend);
         }
     }
 
