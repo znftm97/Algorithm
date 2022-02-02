@@ -3,32 +3,24 @@ package com.company.프로그래머스.구현;
 import java.util.*;
 
 public class 영어끝말잇기_LV2 {
-    public List<Integer> solution(int n) {
-        List<Integer> answer = new ArrayList<>();
-        int[][] arr = new int[n][n];
-        int r = -1;
-        int c = 0;
-        int num = 1;
+    public int[] solution(int n, String[] words) {
+        int[] answer = new int[2];
+        HashMap<String, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < n; i++) {
-            for (int j = i; j < n; j++) {
-                if(i % 3 == 0){
-                    r++;
-                } else if(i % 3 == 1){
-                    c++;
-                } else if(i % 3 == 2) {
-                    r--;
-                    c--;
-                }
+        map.put(words[0], map.getOrDefault(words[0], 0) + 1);
 
-                arr[r][c] = num++;
-            }
-        }
+        for(int i = 1; i<words.length; i++){
+            String str = words[i];
+            map.put(str, map.getOrDefault(str, 0) + 1);
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if(arr[i][j] == 0) break;
-                answer.add(arr[i][j]);
+            if(str.length() == 1 || map.get(str) > 1){
+                answer[0] = i%n + 1;
+                answer[1] = i/n + 1;
+                return answer;
+            } else if(words[i-1].charAt(words[i-1].length() - 1) != str.charAt(0)){
+                answer[0] = i%n + 1;
+                answer[1] = i/n + 1;
+                return answer;
             }
         }
 
