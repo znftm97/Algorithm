@@ -25,7 +25,7 @@ public class 방문길이 {
             nr = r + move.r;
             nc = c + move.c;
 
-            if (isAbleArea(nr, nc)) { // 맵 벗어나면 좌표 이동안함
+            if (isNotAbleArea(nr, nc)) { // 맵 벗어나면 좌표 이동안함
                 nr = r;
                 nc = c;
                 continue;
@@ -55,7 +55,7 @@ public class 방문길이 {
         return result;
     }
 
-    private static boolean isAbleArea(int nr, int nc){
+    private static boolean isNotAbleArea(int nr, int nc){
         return nr > 5 || nr < -5 || nc > 5 || nc < -5;
     }
 
