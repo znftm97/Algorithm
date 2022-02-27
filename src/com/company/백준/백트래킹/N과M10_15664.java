@@ -1,16 +1,13 @@
-package com.company.백준.bfs_dfs;
+package com.company.백준.백트래킹;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
-public class N과M_15654 {
+public class N과M10_15664 {
     private static int[] nums;
     private static int[] customNums;
-    private static boolean[] visit;
     private static int N, M = 0;
+    private static Set<String> result = new LinkedHashSet<>();
     private static StringBuilder sb;
 
     public static void main(String[] args) throws IOException {
@@ -21,7 +18,6 @@ public class N과M_15654 {
         M = Integer.parseInt(st.nextToken());
         nums = new int[N];
         customNums = new int[N];
-        visit = new boolean[N];
         sb = new StringBuilder();
 
         st = new StringTokenizer(br.readLine());
@@ -31,27 +27,26 @@ public class N과M_15654 {
 
         Arrays.sort(nums);
 
-        dfs(0);
+        recursion(0, 0);
 
-        System.out.println(sb);
+        for (String s : result) {
+            System.out.println(s);
+        }
     }
 
-    private static void dfs(int depth){
+    private static void recursion(int depth, int start){
         if (depth == M) {
             for (int i = 0; i < M; i++) {
                 sb.append(customNums[i]).append(" ");
             }
-            sb.append("\n");
+            result.add(sb.toString());
+            sb.setLength(0);
             return;
         }
 
-        for (int i = 0; i < N; i++) {
-            if(visit[i]) continue;
-
-            visit[i] = true;
+        for (int i = start; i < N; i++) {
             customNums[depth] = nums[i];
-            dfs(depth + 1);
-            visit[i] = false;
+            recursion(depth + 1, i + 1);
         }
     }
 
