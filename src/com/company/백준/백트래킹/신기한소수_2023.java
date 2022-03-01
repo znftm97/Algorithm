@@ -7,13 +7,11 @@ import java.io.InputStreamReader;
 public class 신기한소수_2023 {
     private static int numLen;
     private static StringBuilder sb = new StringBuilder();
-    private static boolean visit[];
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         numLen = Integer.parseInt(br.readLine());
-        visit = new boolean[10];
 
         dfs(0);
     }
@@ -27,7 +25,6 @@ public class 신기한소수_2023 {
         for (int i = 1; i < 10; i++) {
             if(depth == 0 && (i == 1 || i == 4 || i == 6 || i == 8 || i == 9)) continue;
 
-            visit[i] = true;
             sb.append(i);
 
             if (!isPrime()) {
@@ -37,7 +34,6 @@ public class 신기한소수_2023 {
 
             dfs(depth + 1);;
             sb.deleteCharAt(sb.length() - 1);
-            visit[i] = false;
         }
     }
 
