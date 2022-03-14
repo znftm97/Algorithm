@@ -21,6 +21,7 @@ public class 가장긴증가하는부분수열_11053 {
             dp[i] = 1;
 
             for(int j = 0; j < i; j++) {
+                // arr에서 현재 나보다(arr[i]) 작은애들중에서 , dp값이 +1 했을때 나보다 크다면, 해당 값 저장
                 if(arr[j] < arr[i] && dp[i] < dp[j] + 1) {
                     dp[i] = dp[j] + 1;
                 }
@@ -29,7 +30,7 @@ public class 가장긴증가하는부분수열_11053 {
 
         int max = -1;
         for(int i = 0; i < n; i++) {
-            max = dp[i] > max ? dp[i] : max;
+            max = Math.max(dp[i], max);
         }
 
         System.out.println(max);
