@@ -1,4 +1,4 @@
-package com.company.백준.dp.LIS;
+package com.company.백준.dp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
