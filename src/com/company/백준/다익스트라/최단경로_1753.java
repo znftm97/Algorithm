@@ -5,8 +5,8 @@ import java.util.*;
 
 public class 최단경로_1753 {
     private static int[] dist;
-    private static List<Node>[] graph;
-    private static int INF = Integer.MAX_VALUE;
+    private static List<List<Node>> graph;
+    private static final int INF = Integer.MAX_VALUE;
 
     private static class Node implements Comparable<Node>{
         int id; // 노드의 식별자
@@ -35,9 +35,9 @@ public class 최단경로_1753 {
         Arrays.fill(dist, INF);
         dist[startNodeId] = 0;
 
-        graph = new ArrayList[nodeCnt + 1];
-        for (int i = 1; i <= nodeCnt; i++) {
-            graph[i] = new ArrayList<>();
+        graph = new ArrayList<>();
+        for (int i = 0; i <= nodeCnt; i++) {
+            graph.add(new ArrayList<>());
         }
 
         for (int i = 0; i < lineCnt; i++) {
@@ -46,7 +46,7 @@ public class 최단경로_1753 {
             int y = Integer.parseInt(st.nextToken());
             int cost = Integer.parseInt(st.nextToken());
 
-            graph[x].add(new Node(y, cost));
+            graph.get(x).add(new Node(y, cost));
         }
 
         dijkstra(startNodeId);
@@ -69,7 +69,7 @@ public class 최단경로_1753 {
             Node now = pq.poll();
             if(dist[now.id] < now.cost) continue; // 현재 비용이 dist에 저장된 비용보다 크면 갱신 x (최단경로가 아닌경우)
 
-            for (Node next : graph[now.id]) { // 현재 노드에서 갈 수 있는 노드들 모두 검사
+            for (Node next : graph.get(now.id)) { // 현재 노드에서 갈 수 있는 노드들 모두 검사
                 if (dist[next.id] > now.cost + next.cost) { // 새로 구한 비용이 더 적을경우 갱신 (최단경로인 경우)
                     dist[next.id] = now.cost + next.cost;
                     pq.add(new Node(next.id, dist[next.id]));
