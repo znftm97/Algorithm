@@ -1,4 +1,4 @@
-package com.company.백준.다익스트라;
+package com.company.백준.최단경로알고리즘.다익스트라;
 
 import java.io.*;
 import java.util.*;
