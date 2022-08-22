@@ -20,6 +20,14 @@ bin/
 **/src/com/company/코테
 !**/src/com/company/코테/**
 **/src/com/company/코테/**
+!**/src/com/company/스터디
+**/src/com/company/스터디
+!**/src/com/company/스터디/**
+**/src/com/company/스터디/**
+!**/src/com/company/코드트리
+**/src/com/company/코드트리
+!**/src/com/company/코드트리/**
+**/src/com/company/코드트리/**
 
 ### IntelliJ IDEA ###
 .idea
@@ -35,6 +43,8 @@ out/
 /src/com/company/Solution.java
 **/src/com/company/Solution.java
 /src/com/company/코테
+/src/com/company/코드트리
+/src/com/company/스터디
 
 
 ### NetBeans ###
