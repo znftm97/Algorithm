@@ -16,6 +16,30 @@ where s.sales_id not in (
     where c.name = 'RED'
 );
 
+#610
+select x,
+       y,
+       z,
+       case
+           when x + y > z and x + z > y and y + z > x then 'Yes'
+           else 'No'
+           end as triangle
+from triangle;
+
+#613
+select min(abs(p1.x - p2.x)) as shortest
+from point p1 join point p2
+where p1.x != p2.x;
+
+#619
+select max(a.num) as num
+from (
+         select num
+         from myNumbers
+         group by num
+         having count(num) = 1
+     ) as a
+
 #620
 select *
 from Cinema c
