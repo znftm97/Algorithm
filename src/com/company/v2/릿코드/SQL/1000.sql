@@ -48,6 +48,12 @@ having sum(price) =
     limit 1
 );
 
+#1083
+select s.buyer_id
+from product p
+join sales s on p.product_id = s.product_id
+group by s.buyer_id
+having sum(p.product_name = 'S8') > 0 and sum(p.product_name = 'iPhone') = 0;
 
 #1084
 select p.product_id, p.product_name

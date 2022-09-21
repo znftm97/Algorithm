@@ -1,14 +1,50 @@
+#1113
+select extra as report_reason, count(distinct (post_id)) as report_count
+from actions
+where action = 'report' and action_date = '2019-07-04'
+group by extra
+having extra is not null;
+
 #1141
 select activity_date as day , count(distinct user_id) as active_users
 from Activity
 where activity_date between '2019-06-28' and '2019-07-27'
 group by activity_date
 
+#1142
+select ifnull(round(count(session_id) / count(distinct user_id), 2), 0.00) as average_sessions_per_user
+from (
+         select user_id, session_id
+         from activity
+         where activity_date between date_sub('2019-07-27', interval 29 day) and '2019-07-27'
+         group by user_id, session_id
+     ) a
+
 #1148
 select distinct author_id as id
 from Views
 where author_id = viewer_id
 order by id;
+
+#1173
+select round(a, 2) as immediate_percentage
+from
+    (
+        select
+                (
+                    select count(delivery_id)
+                    from delivery
+                    where order_date = customer_pref_delivery_date
+                ) /
+                (
+                    select count(delivery_id)
+                    from delivery
+                ) * 100 as a
+    ) t
+
+#1173 다른풀이
+select round(100 * sum(order_date = customer_pref_delivery_date) / count(*), 2) as immediate_percentage
+from delivery;
 
 #1179
 select id,
