@@ -1,4 +1,4 @@
-package com.company.v2.백준.기타_랜덤디펜스;
+package com.company.v2.백준.랜덤문제풀이.s2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
