@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
 public class 거짓말_1043 {
 
     private static int[] parent;
+    private static int[] rank;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,9 +19,11 @@ public class 거짓말_1043 {
         int people = Integer.parseInt(st.nextToken());
         int party = Integer.parseInt(st.nextToken());
         parent = new int[people + 1];
+        rank = new int[people + 1];
 
         for (int i = 1; i <= people; i++) {
             parent[i] = i;
+            rank[i] = 1;
         }
 
         List<List<Integer>> graph = new ArrayList<>();
@@ -79,17 +82,24 @@ public class 거짓말_1043 {
         return parent[x] = find(parent[x]);
     }
 
-    private static void union(int x, int y) {
+    public static void union(int x, int y) {
         x = find(x);
         y = find(y);
 
-        if (x != y) {
-            if (x > y) {
-                parent[x] = y;
-            } else {
-                parent[y] = x;
-            }
+        if(x == y) {
+            return;
         }
+
+        if(rank[x] < rank[y]) {
+            parent[x] = y;
+        } else {
+            parent[y] = x;
+        }
+
+        if(rank[x] == rank[y]) {
+            rank[x]++;
+        }
+
     }
 
 }
