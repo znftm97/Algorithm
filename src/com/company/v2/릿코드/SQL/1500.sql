@@ -26,6 +26,23 @@ from Sales
 group by lower(trim(product_name)), date_format(sale_date, '%Y-%m')
 order by product_name, sale_date;
 
+#1565
+select
+    date_format(order_date, '%Y-%m') as month,
+    count(order_id) as order_count,
+    count(distinct customer_id) as customer_count
+from orders
+where invoice > 20
+group by date_format(order_date, '%Y-%m')
+
+#1571
+select
+    w.name as warehouse_name,
+    sum(w.units * (p.width * p.length * p.height)) as volume
+from warehouse w
+     inner join products p on w.product_id = p.product_id
+group by w.name
+
 #1581
 select v.customer_id, count(v.customer_id) as count_no_trans
 from Visits v
