@@ -1,4 +1,4 @@
-package com.company.v2.코드트리.프로그래밍연습;
+package com.company.v2.코드트리.프로그래밍연습.시뮬1;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -6,10 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class 흰검칠하기 {
+public class 신기한타일뒤집기 {
     private static final int WHITE = 111;
     private static final int BLACK = 222;
-    private static final int GRAY = 333;
     private static final int MAX = 100000;
 
     private static class Info {
@@ -37,7 +36,6 @@ public class 흰검칠하기 {
         int N = Integer.parseInt(br.readLine());
         List<Info> infos = new ArrayList<>();
         int[] checked = new int[MAX * 2 + 10]; // 타일 색칠
-        int[][] whiteBlackCnt = new int[MAX * 2 + 10][2]; // 흰색, 검은색 타일 카운팅
         int curIdx = 0;
 
         for (int i = 0; i < N; i++) {
@@ -62,37 +60,22 @@ public class 흰검칠하기 {
 
         for (Info info : infos) {
             for (int i = info.leftIdx; i <= info.rightIdx; i++) {
-                if(checked[i] == GRAY) continue;
-
-                if (info.color == WHITE) {
-                    checked[i] = WHITE;
-                    whiteBlackCnt[i][0]++;
-                } else if (info.color == BLACK) {
-                    checked[i] = BLACK;
-                    whiteBlackCnt[i][1]++;
-                }
-
-                if (whiteBlackCnt[i][0] >= 2 && whiteBlackCnt[i][1] >= 2) {
-                    checked[i] = GRAY;
-                }
+                checked[i] = info.color;
             }
         }
 
         int whiteCnt = 0;
         int blackCnt = 0;
-        int grayCnt = 0;
 
         for (int i = 0; i < checked.length; i++) {
             if (checked[i] == WHITE) {
                 whiteCnt++;
             } else if (checked[i] == BLACK) {
                 blackCnt++;
-            } else if (checked[i] == GRAY) {
-                grayCnt++;
             }
         }
 
-        System.out.println(whiteCnt + " " + blackCnt + " " + grayCnt);
+        System.out.println(whiteCnt + " " + blackCnt);
     }
 
 }
