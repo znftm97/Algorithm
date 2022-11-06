@@ -30,6 +30,24 @@ from register r
 group by r.contest_id
 order by percentage desc, r.contest_id asc;
 
+#1661 - 1
+SELECT
+    machine_id,
+    ROUND(
+        ( SUM(CASE WHEN activity_type = 'end' THEN timestamp END) - SUM(CASE WHEN activity_type = 'start' THEN timestamp END) ) / COUNT(DISTINCT process_id), 3
+    ) as processing_time
+FROM Activity
+GROUP BY machine_id
+
+#1661 - 2
+SELECT
+    machine_id,
+    ROUND(
+        ( SUM(IF(activity_type = 'end', timestamp, 0)) - SUM(IF(activity_type = 'start', timestamp, 0)) ) / COUNT(DISTINCT process_id), 3
+    ) as processing_time
+FROM Activity
+GROUP BY machine_id
+
 #1667
 select user_id, concat(substring(upper(name),1,1),
                        substring(lower(name),2)) as name
