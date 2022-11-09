@@ -1,4 +1,4 @@
-package com.company.v2.코드트리.프로그래밍연습.완탐2;
+package com.company.v2.코드트리.프로그래밍연습.완탐1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
