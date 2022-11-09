@@ -66,6 +66,11 @@ FROM Product P
 GROUP BY P.product_id
 ORDER BY P.name
 
+#1683
+SELECT tweet_id
+FROM Tweets
+where CHAR_LENGTH(content) > 15;
+
 #1693
 select date_id,
        make_name,
