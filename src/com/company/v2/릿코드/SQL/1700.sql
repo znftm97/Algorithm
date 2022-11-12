@@ -16,6 +16,24 @@ select product_id
 from Products
 where low_fats = 'Y' and recyclable = 'Y';
 
+#1777 - 1
+SELECT
+    product_id,
+    MAX(CASE WHEN store = 'store1' THEN price END) AS store1,
+    MAX(CASE WHEN store = 'store2' THEN price END) AS store2,
+    MAX(CASE WHEN store = 'store3' THEN price END) AS store3
+FROM Products
+GROUP BY product_id
+
+#1777 - 2
+SELECT
+    product_id,
+    SUM(CASE WHEN store = 'store1' THEN price END) AS store1,
+    SUM(CASE WHEN store = 'store2' THEN price END) AS store2,
+    SUM(CASE WHEN store = 'store3' THEN price END) AS store3
+FROM Products
+GROUP BY product_id
+
 #1795
 select product_id, 'store1' as store ,store1 as price
 from Products
