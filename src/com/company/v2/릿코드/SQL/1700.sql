@@ -34,6 +34,16 @@ SELECT
 FROM Products
 GROUP BY product_id
 
+#1789
+SELECT employee_id, department_id
+FROM Employee
+WHERE primary_flag = 'Y'
+UNION
+SELECT employee_id, department_id
+FROM Employee
+GROUP BY employee_id
+HAVING count(employee_id) = 1;
+
 #1795
 select product_id, 'store1' as store ,store1 as price
 from Products
