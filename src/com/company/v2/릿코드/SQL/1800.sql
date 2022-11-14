@@ -15,6 +15,12 @@ WHERE session_id NOT IN (
     WHERE ad.timestamp BETWEEN pb.start_time AND pb.end_time
 )
 
+#1821
+SELECT customer_id
+FROM Customers
+GROUP BY customer_id, year
+HAVING year = '2021' AND SUM(revenue) > 0
+
 #1873
 select employee_id , if((employee_id%2) = 1 and name not like 'M%', salary, 0) as bonus
 from Employees
