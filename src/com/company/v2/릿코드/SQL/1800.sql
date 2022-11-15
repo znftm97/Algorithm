@@ -21,6 +21,10 @@ FROM Customers
 GROUP BY customer_id, year
 HAVING year = '2021' AND SUM(revenue) > 0
 
+#1853
+SELECT DATE_FORMAT(day, '%W, %M %d, %Y') as day
+FROM Days
+
 #1873
 select employee_id , if((employee_id%2) = 1 and name not like 'M%', salary, 0) as bonus
 from Employees
