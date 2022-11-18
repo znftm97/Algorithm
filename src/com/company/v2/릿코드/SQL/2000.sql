@@ -11,7 +11,7 @@ SELECT CASE
         ELSE 'No Winner'
         END AS 'winner';
 
-#207 - 2
+#2072 - 2
 WITH T AS (
   SELECT
     (SELECT COUNT(*) FROM NewYork WHERE score >= 90) AS ny_cnt,
@@ -24,3 +24,8 @@ SELECT CASE
         ELSE 'No Winner'
         END AS 'winner'
 FROM T;
+
+#2082
+SELECT COUNT(DISTINCT customer_id) AS rich_count
+FROM Store
+WHERE amount > 500
