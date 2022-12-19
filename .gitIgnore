@@ -39,9 +39,20 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 /src/com/company/Main.java
+<<<<<<< HEAD
 /src/com/company/Solution.java
 /src/com/company/v1/코테
 /src/com/company/v2/코테
+=======
+**/src/com/company/Main.java
+/src/com/company/Solution.java
+**/src/com/company/Solution.java
+/src/com/company/v1/코테
+/src/com/company/v2/코테
+/src/com/company/v1/코드트리
+/src/com/company/v1/스터디
+
+>>>>>>> 74d90cfa46ef96b2c18a9f28fe99ec5ac2eccf91
 
 ### NetBeans ###
 /nbproject/private/
