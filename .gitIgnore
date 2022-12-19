@@ -1,0 +1,54 @@
+.HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+!**/src/com/company/코테
+**/src/com/company/코테
+!**/src/com/company/코테/**
+**/src/com/company/코테/**
+!**/src/com/company/스터디
+**/src/com/company/스터디
+!**/src/com/company/스터디/**
+**/src/com/company/스터디/**
+!**/src/com/company/코드트리
+**/src/com/company/코드트리
+!**/src/com/company/코드트리/**
+**/src/com/company/코드트리/**
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/**/*.yml
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+/src/com/company/Main.java
+/src/com/company/Solution.java
+/src/com/company/v1/코테
+/src/com/company/v2/코테
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
