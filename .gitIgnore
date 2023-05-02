@@ -39,6 +39,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 /src/com/company/Main.java
+/src/com/company/KMain.kt
 /src/com/company/Solution.java
 /src/com/company/v1/코테
 /src/com/company/v2/코테

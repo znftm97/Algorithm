@@ -29,3 +29,13 @@ FROM T;
 SELECT COUNT(DISTINCT customer_id) AS rich_count
 FROM Store
 WHERE amount > 500
+
+#2230
+CREATE PROCEDURE getUserIDs(startDate DATE, endDate DATE, minAmount INT)
+BEGIN
+select distinct(user_id)
+from Purchases
+where time_stamp between startDate and endDate
+  and amount >= minAmount
+order by user_id;
+END
