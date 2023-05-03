@@ -18,3 +18,16 @@ RETURN (
     OFFSET N
     );
 END
+
+#184
+select
+    d.name as Department,
+    e.name as Employee,
+    e.salary as Salary
+from Department d
+         inner join Employee e on d.id = e.departmentId
+where (d.id, e.salary) in (
+    select departmentId, max(salary)
+    from Employee
+    group by departmentId
+)

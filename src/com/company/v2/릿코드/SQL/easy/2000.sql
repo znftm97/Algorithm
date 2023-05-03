@@ -39,3 +39,10 @@ where time_stamp between startDate and endDate
   and amount >= minAmount
 order by user_id;
 END
+
+#2329
+select s.user_id, sum(s.quantity * p.price) as spending
+from sales s
+         inner join product p on s.product_id = p.product_id
+group by s.user_id
+order by spending desc, user_id asc
