@@ -46,3 +46,10 @@ from sales s
          inner join product p on s.product_id = p.product_id
 group by s.user_id
 order by spending desc, user_id asc
+
+#2339
+select
+    t1.team_name as home_team,
+    t2.team_name as away_team
+from Teams t1, Teams t2
+where t1.team_name != t2.team_name;
