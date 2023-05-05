@@ -1,10 +1,10 @@
 package com.company.v2.릿코드.알고리즘.easy
 
-class ListNode(var `val`: Int) {
-    var next: ListNode? = null
+class ListNode2(var `val`: Int) {
+    var next: ListNode2? = null
 }
 
-fun isPalindrome(head: ListNode?): Boolean {
+fun isPalindrome(head: ListNode2?): Boolean {
     head ?: return false
     var headNode = head!!
     val nums = mutableListOf<Int>()

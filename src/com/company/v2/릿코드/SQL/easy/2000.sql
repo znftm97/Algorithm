@@ -53,3 +53,8 @@ select
     t2.team_name as away_team
 from Teams t1, Teams t2
 where t1.team_name != t2.team_name;
+
+#2356
+select teacher_id, count(distinct(subject_id)) as cnt
+from Teacher
+group by teacher_id

@@ -39,3 +39,7 @@ where (l1.id + 1 = l2.id)   &&
         (l2.id + 1 = l3.id) &&
         (l1.num = l2.num)   &&
         (l2.num = l3.num)
+
+#178
+select score, dense_rank() over(order by score desc) AS 'rank'
+from Scores;
