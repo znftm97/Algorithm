@@ -58,3 +58,8 @@ where t1.team_name != t2.team_name;
 select teacher_id, count(distinct(subject_id)) as cnt
 from Teacher
 group by teacher_id
+
+#2377
+select *
+from Olympic
+order by gold_medals desc, silver_medals desc, bronze_medals desc, country;
