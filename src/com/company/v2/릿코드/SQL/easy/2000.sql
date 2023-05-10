@@ -63,3 +63,10 @@ group by teacher_id
 select *
 from Olympic
 order by gold_medals desc, silver_medals desc, bronze_medals desc, country;
+
+#2480
+select
+    e1.symbol as metal,
+    e2.symbol as nonmetal
+from elements e1, elements e2
+where e1.type = 'Metal' and e2.type = 'Nonmetal'
