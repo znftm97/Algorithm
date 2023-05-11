@@ -70,3 +70,10 @@ select
     e2.symbol as nonmetal
 from elements e1, elements e2
 where e1.type = 'Metal' and e2.type = 'Nonmetal'
+
+#2504
+select
+    person_id,
+    concat(name, '(', substring(profession,1,1), ')') as name
+from person
+order by person_id desc
