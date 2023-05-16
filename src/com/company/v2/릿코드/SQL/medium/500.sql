@@ -17,3 +17,13 @@ select
         where a1.player_id = a2.player_id and a1.event_date >= a2.event_date
     ) as games_played_so_far
 from activity a1
+
+#550
+select
+    round( count(distinct player_id) / (select count(distinct player_id) from activity) , 2) as fraction
+from activity
+where (player_id, event_date) in (
+    select player_id, date_add(min(event_date), interval 1 day)
+    from activity
+    group by player_id
+)
