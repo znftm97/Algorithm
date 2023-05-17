@@ -27,3 +27,16 @@ where (player_id, event_date) in (
     from activity
     group by player_id
 )
+
+#574
+with t as (
+    select candidateId, count(candidateId) cnt
+    from vote
+    group by candidateId
+    order by cnt desc
+    limit 1
+)
+
+select c.name as name
+from candidate c
+inner join t on c.id = t.candidateId;
