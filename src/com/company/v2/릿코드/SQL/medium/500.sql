@@ -65,3 +65,17 @@ from surveylog s
 group by s.question_id
 order by (a.answer_cnt / q.question_cnt) desc, s.question_id
 limit 1;
+
+###585
+select round(sum(tiv_2016), 2) as tiv_2016
+from insurance i
+where tiv_2015 in (
+    select tiv_2015
+    from insurance i2
+    where i.pid != i2.pid
+) and
+    (lat, lon) not in (
+    select lat, lon
+    from insurance i3
+    where i.pid != i3.pid
+)
