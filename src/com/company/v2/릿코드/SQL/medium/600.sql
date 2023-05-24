@@ -41,3 +41,8 @@ from unions
 group by requester_id
 order by num desc
 limit 1;
+
+###612
+select min(round(sqrt(pow(p2.x - p1.x,2) + pow(p2.y - p1.y,2)), 2)) as shortest
+from point2d p1, point2d p2
+where round(sqrt(pow(p2.x - p1.x,2) + pow(p2.y - p1.y,2)), 2) != 0
