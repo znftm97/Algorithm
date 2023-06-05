@@ -25,3 +25,21 @@ where (student_id, grade) in (
 )
 group by student_id
 order by student_id
+
+### 1126
+with occ_avg as( # event_type별 평균값
+  select event_type as et, avg(occurences) as occ
+  from events
+  group by event_type
+), res as ( # 평균보다 큰 비즈니스
+  select *
+  from events e
+  inner join occ_avg oa on e.event_type = oa.et
+  where e.occurences > oa.occ
+  group by e.business_id, e.event_type
+)
+
+select business_id
+from res
+group by business_id
+having count(business_id) >= 2
