@@ -5,6 +5,26 @@ where action = 'report' and action_date = '2019-07-04'
 group by extra
 having extra is not null;
 
+###1132
+with spam as (
+    select
+        distinct actions.post_id,
+                 action_date,
+                 remove_date
+    from actions left join removals using(post_id)
+    where extra = 'spam'
+), daily as (
+    select
+        action_date,
+        100 * sum(remove_date is not null) / count(post_id) as daily_rate
+    from spam
+    group by action_date
+)
+
+select
+    round(sum(daily_rate) / count(daily_rate), 2) as average_daily_percent
+from daily
+
 #1141
 select activity_date as day , count(distinct user_id) as active_users
 from Activity
