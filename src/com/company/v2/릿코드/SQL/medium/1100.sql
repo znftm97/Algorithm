@@ -43,3 +43,10 @@ select business_id
 from res
 group by business_id
 having count(business_id) >= 2
+
+###1149
+select distinct viewer_id as id
+from views
+group by viewer_id, view_date
+having count(distinct article_id) >= 2
+order by id
