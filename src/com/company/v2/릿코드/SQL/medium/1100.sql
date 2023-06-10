@@ -60,3 +60,19 @@ from users u
          left join orders o on u.user_id = o.buyer_id
     and o.order_date between '2019-01-01' and '2019-12-31'
 group by u.user_id
+
+###1174
+with total_customer_count as(
+    select count(distinct customer_id)
+    from delivery
+), direct_order_count as(
+    select count(customer_id)
+    from delivery
+    where (customer_id, order_date) in (
+        select customer_id, min(order_date)
+        from delivery
+        group by customer_id
+    ) and order_date = customer_pref_delivery_date
+)
+
+select round((select * from direct_order_count) / (select * from total_customer_count) * 100, 2) as immediate_percentage
