@@ -1,3 +1,13 @@
+###1204
+select person_name
+from(
+    select person_name, weight, turn, sum(weight) over(order by turn) as cum_sum
+    from queue
+) tmp
+where cum_sum <= 1000
+order by turn desc
+limit 1;
+
 #1285
 select
     min(log_id) as start_id,
