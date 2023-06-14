@@ -29,6 +29,41 @@ select
 from cte
 group by month, country
 
+###1212
+with home as(
+    select
+        m.host_team as team_id,
+        t.team_name,
+        sum(
+            case when m.host_goals > m.guest_goals then 3
+            when m.host_goals = m.guest_goals then 1
+            else 0 end
+        ) as num_points
+    from matches m
+    inner join teams t on m.host_team = t.team_id
+    group by m.host_team
+), away as(
+    select
+        m.guest_team as team_id,
+        t.team_name,
+        sum(
+            case when m.guest_goals > m.host_goals then 3
+            when m.guest_goals = m.host_goals then 1
+            else 0 end
+        ) as num_points
+    from matches m
+    inner join teams t on m.guest_team = t.team_id
+    group by m.guest_team
+)
+
+select
+    distinct t.team_id,
+     t.team_name,
+     ifnull(h.num_points, 0) + ifnull(a.num_points, 0) as num_points
+from teams t
+     left join home h on t.team_id = h.team_id
+     left join away a on t.team_id = a.team_id
+order by num_points desc, t.team_id
 
 #1285
 select
