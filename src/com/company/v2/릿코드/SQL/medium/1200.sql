@@ -81,6 +81,36 @@ from likes
 where user_id in (select * from friends)
   and page_id not in (select page_id from likes where user_id = 1)
 
+###1270
+with direct as(
+  select employee_id
+  from employees
+  where manager_id = 1 and employee_id !=1
+), indirect1 as (
+  select employee_id
+  from employees
+  where manager_id in (
+    select employee_id
+    from direct
+  )
+), indirect2 as (
+  select employee_id
+  from employees
+  where manager_id in (
+    select employee_id
+    from indirect1
+  )
+)
+
+select *
+from direct
+union
+select *
+from indirect1
+union
+select *
+from indirect2
+
 #1285
 select
     min(log_id) as start_id,
