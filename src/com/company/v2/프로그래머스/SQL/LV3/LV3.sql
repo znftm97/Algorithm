@@ -34,3 +34,42 @@ where car_id in (
     where car_type = '세단'
 ) and month(start_date) = 10
 order by car_id desc
+
+###
+select
+    distinct car_id,
+     '대여중' as AVAILABILITY
+from car_rental_company_rental_history
+where car_id in (
+    select car_id
+    from car_rental_company_rental_history
+    where start_date <= '2022-10-16' and end_date >= '2022-10-16'
+)
+union all
+select
+    distinct car_id,
+     '대여 가능' as AVAILABILITY
+from car_rental_company_rental_history
+where car_id not in (
+    select car_id
+    from car_rental_company_rental_history
+    where start_date <= '2022-10-16' and end_date >= '2022-10-16'
+)
+order by car_id desc
+
+###
+select
+    month(start_date) as month,
+    car_id,
+    count(car_id) as records
+from CAR_RENTAL_COMPANY_RENTAL_HISTORY
+where car_id in (
+    select car_id
+    from CAR_RENTAL_COMPANY_RENTAL_HISTORY
+    where month(start_date) between 8 and 10
+    group by car_id
+    having count(car_id) >= 5
+) and month(start_date) between 8 and 10
+group by month(start_date), car_id
+having count(car_id) > 0
+order by month(start_date), car_id desc
