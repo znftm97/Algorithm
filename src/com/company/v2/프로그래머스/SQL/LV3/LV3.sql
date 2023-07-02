@@ -73,3 +73,13 @@ where car_id in (
 group by month(start_date), car_id
 having count(car_id) > 0
 order by month(start_date), car_id desc
+
+###
+select
+    bo.category,
+    sum(bs.sales) as total_sales
+from book bo
+     inner join book_sales bs on bo.book_id = bs.book_id
+where bs.sales_date like '2022-01%'
+group by bo.category
+order by bo.category
