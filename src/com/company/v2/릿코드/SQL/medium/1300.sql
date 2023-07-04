@@ -28,6 +28,24 @@ from scores
 group by gender, day
 order by gender, day
 
+### 1321
+with tmp as(
+  select
+    visited_on,
+    sum(amount) amount
+  from customer
+  group by visited_on
+)
+
+select
+    t1.visited_on,
+    sum(t2.amount) as amount,
+    round(avg(t2.amount), 2) as average_amount
+from tmp t1
+     join tmp t2 on datediff(t1.visited_on, t2.visited_on) between 0 and 6
+group by t1.visited_on
+having count(1) = 7
+order by t1.visited_on
 
 #1393
 select
