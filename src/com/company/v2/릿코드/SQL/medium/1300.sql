@@ -65,6 +65,32 @@ union all
     order by avg(mr.rating) desc, m.title limit 1
 )
 
+###1355
+with max_activity as (
+    select count(activity)
+    from friends
+    group by activity
+    order by count(activity)
+    limit 1
+), min_activity as (
+    select count(activity)
+    from friends
+    group by activity
+    order by count(activity) desc
+    limit 1
+)
+
+select distinct activity
+from friends
+group by activity
+having count(activity) not in (
+    select *
+    from max_activity
+    union
+    select *
+    from min_activity
+)
+
 
 #1393
 select
