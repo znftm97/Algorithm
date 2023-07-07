@@ -98,3 +98,10 @@ select
     sum( if(operation = 'Buy', -price, price) ) as capital_gain_loss
 from stocks
 group by stock_name
+
+###1398
+select *
+from customers
+where customer_id in (select customer_id from orders where product_name = 'A')
+  and customer_id in (select customer_id from orders where product_name = 'B')
+  and customer_id not in (select customer_id from orders where product_name = 'C')
