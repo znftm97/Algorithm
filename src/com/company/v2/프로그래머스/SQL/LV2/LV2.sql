@@ -38,3 +38,19 @@ from appointment
 where apnt_ymd like '2022-05%'
 group by mcdp_cd
 order by count(apnt_no), mcdp_cd
+
+###
+select user_id, product_id
+from online_sale
+group by user_id, product_id
+having count(online_sale_id) >= 2
+order by user_id, product_id desc
+
+###
+select
+    p.product_code,
+    sum(p.price * os.sales_amount) as sales
+from product p
+inner join offline_sale os on p.product_id = os.product_id
+group by p.product_code
+order by sales desc, p.product_code
