@@ -54,3 +54,19 @@ from product p
 inner join offline_sale os on p.product_id = os.product_id
 group by p.product_code
 order by sales desc, p.product_code
+
+###
+select
+    (price - price%10000) as price_group,
+    count(*) as products
+from product
+group by price_group
+order by price_group
+
+###
+select
+    substring(product_code, 1, 2) as category,
+    count(*) as products
+from product
+group by category
+order by category
