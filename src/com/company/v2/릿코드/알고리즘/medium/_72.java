@@ -1,4 +1,4 @@
-package com.company.v2.릿코드.알고리즘;
+package com.company.v2.릿코드.알고리즘.medium;
 
 public class _72 {
     public int minDistance(String word1, String word2) {
