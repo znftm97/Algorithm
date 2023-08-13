@@ -14,3 +14,32 @@ where plan.duration_type = '30일 이상'
 )
 having fee >= 500000 and fee < 2000000
 order by fee desc, com.car_type, com.car_id desc
+
+###
+select
+    a.author_id,
+    a.author_name,
+    b.category,
+    sum(bs.sales * b.price) as total_sales
+from book_sales bs
+     inner join book b on bs.book_id = b.book_id
+     inner join author a on b.author_id = a.author_id
+where year(bs.sales_date) = '2022' and month(bs.sales_date) = '01'
+group by a.author_name, b.category
+order by a.author_id, b.category desc
+
+###
+with jul as (
+    select flavor, sum(total_order) as total
+    from july
+    group by flavor
+), hal as (
+    select flavor, total_order as total
+    from first_half
+)
+
+select j.flavor
+from jul j
+     inner join hal h on j.flavor = h.flavor
+order by j.total + h.total desc
+limit 3;
