@@ -43,3 +43,19 @@ from jul j
      inner join hal h on j.flavor = h.flavor
 order by j.total + h.total desc
 limit 3;
+
+###
+select
+    ap.apnt_no,
+    pa.pt_name,
+    pa.pt_no,
+    ap.mcdp_cd,
+    do.dr_name,
+    ap.apnt_ymd
+from appointment ap
+     inner join patient pa on pa.pt_no = ap.pt_no
+     inner join doctor do on do.dr_id = ap.mddr_id
+where ap.apnt_ymd like '2022-04-13%'
+  and ap.apnt_cncl_yn = 'N'
+  and ap.mcdp_cd = 'CS'
+order by ap.apnt_ymd
