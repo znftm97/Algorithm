@@ -59,3 +59,33 @@ where ap.apnt_ymd like '2022-04-13%'
   and ap.apnt_cncl_yn = 'N'
   and ap.mcdp_cd = 'CS'
 order by ap.apnt_ymd
+
+###
+select
+    date_format(sales_date, '%Y-%m-%d') as sales_date,
+    product_id,
+    user_id,
+    sales_amount
+from online_sale
+where sales_date like '2022-03%'
+union
+select
+    date_format(sales_date, '%Y-%m-%d') as sales_date,
+    product_id,
+    null,
+    sales_amount
+from offline_sale
+where sales_date like '2022-03%'
+order by sales_date, product_id, user_id
+
+###
+select
+    year(os.sales_date) as year,
+    month(os.sales_date) as month,
+    ui.gender,
+    count(distinct os.user_id) as users
+from user_info ui
+     inner join online_sale os on ui.user_id = os.user_id
+where ui.gender is not null
+group by year, month, ui.gender
+order by year, month, ui.gender
