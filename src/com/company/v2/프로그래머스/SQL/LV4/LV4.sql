@@ -89,3 +89,19 @@ from user_info ui
 where ui.gender is not null
 group by year, month, ui.gender
 order by year, month, ui.gender
+
+###
+select
+    me.member_name,
+    re.review_text,
+    date_format(re.review_date, '%Y-%m-%d') as review_date
+from rest_review re
+     inner join member_profile me on re.member_id = me.member_id
+where re.member_id = (
+    select member_id
+    from rest_review
+    group by member_id
+    order by count(review_id) desc
+    limit 1
+)
+order by re.review_date, re.review_text
