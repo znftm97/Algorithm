@@ -83,3 +83,30 @@ from book bo
 where bs.sales_date like '2022-01%'
 group by bo.category
 order by bo.category
+
+###
+select
+    concat('/home/grep/src/', board_id,'/',file_id,file_name,file_ext) as file_path
+from used_goods_file
+where board_id = (
+    select board_id
+    from used_goods_board
+    order by views desc
+    limit 1
+)
+order by file_id desc
+
+###
+select
+    user_id,
+    nickname,
+    concat(city, ' ', street_address1, ' ', street_address2) as '전체주소',
+    concat(substring(tlno, 1, 3), '-', substring(tlno, 4,4), '-', substring(tlno, 8)) as '전화번호'
+from used_goods_user
+where user_id in (
+    select writer_id
+    from used_goods_board
+    group by writer_id
+    having count(writer_id) >= 3
+)
+order by user_id desc
