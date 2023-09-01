@@ -110,3 +110,22 @@ where user_id in (
     having count(writer_id) >= 3
 )
 order by user_id desc
+
+###
+select
+    gu.user_id,
+    gu.nickname,
+    sum(gb.price) as total_sales
+from used_goods_board gb
+     inner join used_goods_user gu on gb.writer_id = gu.user_id
+where gb.status = 'DONE'
+group by gb.writer_id
+having total_sales >= 700000
+order by total_sales
+
+###
+select distinct rental_his.car_id
+from CAR_RENTAL_COMPANY_RENTAL_HISTORY rental_his
+    inner join CAR_RENTAL_COMPANY_CAR rental on rental.car_id = rental_his.car_id
+where rental.car_type = '세단' and month(rental_his.start_date) = '10'
+order by rental_his.car_id desc
