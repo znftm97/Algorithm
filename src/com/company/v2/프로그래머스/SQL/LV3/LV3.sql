@@ -129,3 +129,34 @@ from CAR_RENTAL_COMPANY_RENTAL_HISTORY rental_his
     inner join CAR_RENTAL_COMPANY_CAR rental on rental.car_id = rental_his.car_id
 where rental.car_type = '세단' and month(rental_his.start_date) = '10'
 order by rental_his.car_id desc
+
+###
+select
+    sb.car_id,
+    if(max(sb.availability) = '대여중', '대여중', '대여 가능') as 'availability'
+from (
+         select
+             car_id,
+             case when start_date <= '2022-10-16' && end_date >= '2022-10-16' then '대여중'
+                  else '대여 가능' end as 'availability'
+         from CAR_RENTAL_COMPANY_RENTAL_HISTORY
+     ) as sb
+group by sb.car_id
+order by sb.car_id desc
+
+###
+select
+    month(start_date) as month,
+    car_id,
+    count(car_id) as records
+from CAR_RENTAL_COMPANY_RENTAL_HISTORY
+where car_id in (
+    select car_id
+    from CAR_RENTAL_COMPANY_RENTAL_HISTORY
+    where month(start_date) between 8 and 10
+    group by car_id
+    having count(car_id) >= 5
+) and month(start_date) between 8 and 10
+group by month(start_date), car_id
+having count(car_id) > 0
+order by month(start_date), car_id desc
