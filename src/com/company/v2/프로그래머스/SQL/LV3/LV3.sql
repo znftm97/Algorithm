@@ -160,3 +160,27 @@ where car_id in (
 group by month(start_date), car_id
 having count(car_id) > 0
 order by month(start_date), car_id desc
+
+###`
+select
+    b.category,
+    sum(bs.sales) as total_sales
+from book b
+         inner join book_sales bs on b.book_id = bs.book_id
+where bs.sales_date like '2022-01%'
+group by b.category
+order by b.category
+
+###
+select
+    food_type,
+    rest_id,
+    rest_name,
+    favorites
+from rest_info
+where (food_type, favorites) in (
+    select food_type, max(favorites)
+    from rest_info
+    group by food_type
+)
+order by food_type desc
