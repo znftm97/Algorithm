@@ -28,6 +28,7 @@ bin/
 **/src/com/company/코드트리
 !**/src/com/company/코드트리/**
 **/src/com/company/코드트리/**
+**/src/com/company/KSolution.kt
 
 ### IntelliJ IDEA ###
 .idea
