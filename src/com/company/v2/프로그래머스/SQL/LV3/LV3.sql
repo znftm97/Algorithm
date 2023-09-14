@@ -184,3 +184,25 @@ where (food_type, favorites) in (
     group by food_type
 )
 order by food_type desc
+
+###
+select
+    order_id,
+    product_id,
+    date_format(out_date, '%Y-%m-%d') as out_date,
+    case when out_date <= '2022-05-01' then '출고완료'
+         when out_date > '2022-05-01' then '출고대기'
+         else '출고미정' end as '출고여부'
+from food_order
+order by order_id
+
+###
+select *
+from places
+where host_id in (
+    select host_id
+    from places
+    group by host_id
+    having count(host_id) >= 2
+)
+order by id
