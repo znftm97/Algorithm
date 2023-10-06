@@ -122,3 +122,16 @@ where car.car_type in ('세단', 'SUV')
 )
 having fee >= 500000 and fee < 2000000
 order by fee desc, car.car_type asc, car.car_id desc
+
+###
+select
+    a.author_id,
+    a.author_name,
+    b.category,
+    sum(bs.sales * b.price) as total_sales
+from author a
+inner join book b on a.author_id = b.author_id
+inner join book_sales bs on b.book_id = bs.book_id
+where bs.sales_date like '2022-01%'
+group by a.author_id, b.category
+order by a.author_id, b.category desc
