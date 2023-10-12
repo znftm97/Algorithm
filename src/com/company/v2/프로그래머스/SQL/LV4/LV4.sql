@@ -135,3 +135,18 @@ inner join book_sales bs on b.book_id = bs.book_id
 where bs.sales_date like '2022-01%'
 group by a.author_id, b.category
 order by a.author_id, b.category desc
+
+###
+with july_sum as(
+    select
+        shipment_id,
+        sum(total_order) as total_order
+    from july
+    group by flavor
+)
+
+select fh.flavor
+from first_half fh
+         inner join july_sum js on fh.shipment_id = js.shipment_id
+order by fh.total_order + js.total_order desc
+limit 3;
