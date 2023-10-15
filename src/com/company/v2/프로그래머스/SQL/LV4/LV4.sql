@@ -150,3 +150,19 @@ from first_half fh
          inner join july_sum js on fh.shipment_id = js.shipment_id
 order by fh.total_order + js.total_order desc
 limit 3;
+
+###
+select
+    ap.apnt_no,
+    pt.pt_name,
+    pt.pt_no,
+    ap.mcdp_cd,
+    dr.dr_name,
+    ap.apnt_ymd
+from appointment ap
+         inner join doctor dr on ap.mddr_id=dr.dr_id
+         inner join patient pt on ap.pt_no=pt.pt_no
+where ap.apnt_cncl_yn = 'N' and
+        ap.apnt_ymd like '2022-04-13%' and
+        ap.mcdp_cd = 'cs'
+order by ap.apnt_ymd
