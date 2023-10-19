@@ -1,4 +1,4 @@
-package com.company.v2.백준.랜덤문제풀이.g4;
+package com.company.v2.백준.랜덤문제풀이.g3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
