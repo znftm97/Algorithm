@@ -184,3 +184,15 @@ select
 from offline_sale
 where sales_date like '2022-03%'
 order by sales_date, product_id, user_id
+
+###
+select
+    year(os.sales_date) as year,
+    month(os.sales_date) as month,
+    us.gender,
+    count(distinct us.user_id) as users
+from online_sale os
+inner join user_info us on us.user_id = os.user_id
+where us.gender is not null
+group by year(os.sales_date), month(os.sales_date), us.gender
+order by year(os.sales_date), month(os.sales_date), us.gender
