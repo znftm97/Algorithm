@@ -196,3 +196,19 @@ inner join user_info us on us.user_id = os.user_id
 where us.gender is not null
 group by year(os.sales_date), month(os.sales_date), us.gender
 order by year(os.sales_date), month(os.sales_date), us.gender
+
+###
+select
+    mp.member_name,
+    rr.review_text,
+    date_format(rr.review_date, '%Y-%m-%d') as review_date
+from rest_review rr
+         inner join member_profile mp on rr.member_id = mp.member_id
+where rr.member_id = (
+    select member_id
+    from rest_review
+    group by member_id
+    order by count(member_id) desc
+    limit 1
+)
+order by rr.review_date, rr.review_text
